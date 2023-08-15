@@ -5,7 +5,7 @@ site_url: https://docs.sensadata.io
 theme:
   name: material
   logo: assets/logo.png
-  favicon: images/favicon.png 
+  favicon: assets/favicon.png 
   features:
     - navigation.tabs
     - navigation.sections
