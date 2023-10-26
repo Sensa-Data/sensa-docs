@@ -23,8 +23,8 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: indigo
-      accent: purple 
+      primary: custom
+      accent: custom 
     - scheme: slate 
       toggle:
         icon: material/toggle-switch
