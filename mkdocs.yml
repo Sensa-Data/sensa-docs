@@ -23,16 +23,9 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: custom
-      accent: custom 
-    - scheme: slate 
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode    
-      primary: indigo
-      accent: lime
-extra_css:
-  - stylesheets/extra.css
+      primary: deep orange
+      accent: deep orange 
+    
 
 plugins:
   - social
