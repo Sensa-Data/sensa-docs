@@ -10,11 +10,11 @@ For OpenApi visit [Docs](api.sensadata.io/docs).
 #### Read
 
 ``` py title="read.py"
-from datetime import datetime, timedelta
-from dotenv import load_dotenv
-import httpx
-import json
 import os
+import json
+import httpx
+from dotenv import load_dotenv
+from datetime import datetime, timedelta
 
 load_dotenv()
 

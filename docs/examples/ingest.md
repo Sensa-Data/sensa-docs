@@ -70,7 +70,7 @@ async def ingest():
     limits = httpx.Limits(max_connections=50, max_keepalive_connections=50)
     async with httpx.AsyncClient(limits=limits) as client:
         requests = []
-        for data in read_data_from_file("dataset/HRLY_PRECIP_SUM_OSLO_2013_2023_small.csv"):
+        for data in read_data_from_file("PathToDataset"):
             requests.append(asyncio.ensure_future(write_data(client, data)))
         await asyncio.gather(*requests)
 
