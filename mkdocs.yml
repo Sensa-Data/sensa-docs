@@ -42,7 +42,6 @@ extra:
       link: https://github.com/Sensa-Data
 
 markdown_extensions:
-  markdown_extensions:
   - toc:
       permalink: True
   - admonition
