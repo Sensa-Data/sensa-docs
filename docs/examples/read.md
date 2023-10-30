@@ -1,6 +1,6 @@
 # SDM API
 
-For OpenApi visit [Docs](api.sensadata.io/docs).
+For OpenApi visit [Docs](https://api.sensadata.io/docs).
 
 
 ## Usage
