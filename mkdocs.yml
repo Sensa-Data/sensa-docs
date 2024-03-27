@@ -18,10 +18,7 @@ theme:
     - search.highlight
     - search.share
   language: en
-  palette:
-    - scheme: default
-      primary: deep orange
-      accent: deep orange 
+  
     
 
 plugins:
