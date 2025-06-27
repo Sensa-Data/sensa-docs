@@ -1,5 +1,5 @@
 site_name: Sensa Documentation
-site_description: Development documentation for Sensa.
+site_description: Public documentation for Sensa.
 site_author: Sensa Team
 docs_dir: docs-public/  # default, overridden per language via i18n
 site_dir: site-public

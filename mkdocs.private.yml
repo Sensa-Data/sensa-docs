@@ -38,7 +38,7 @@ nav:
     - Getting Started: index.md
     - Pipelines: 02-writing-pipelines.md
     - Scheduling Pipelines: 03-scheduling-pipe-runs.md
-    - Validation schema using Pydantic: 04-validation-schema.md
+    - Schema Validation: 04-validation-schema.md
     - Reading and Writing Data: 05-reading-and-writing-data.md
 
 plugins:

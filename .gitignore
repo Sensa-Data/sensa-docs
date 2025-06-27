@@ -63,3 +63,5 @@ site/
 # Optional: ignore mkdocs.yml backup or logs
 mkdocs.yml.bak
 mkdocs.log
+/site-private/
+/site-public/
