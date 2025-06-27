@@ -1,0 +1,85 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - docs-public/**
+      - Dockerfile
+      - nginx.conf
+      - mkdocs.public.yml
+      - .github/workflows/docker-mkdocs.yml
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed to push version tags and commits
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Build MkDocs site
+        run: |
+          mkdocs build -f mkdocs.public.yml
+
+      # -----------------------------
+      # Auto version bump & tagging
+      # -----------------------------
+      - name: Bump version and push tag
+        id: bump_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # -----------------------------
+      # Extract version number from tag (e.g. v1.2.4 → 1.2.4)
+      # -----------------------------
+      - name: Extract version number
+        id: extract_version
+        run: |
+          VERSION=${{ steps.bump_version.outputs.new_tag }}
+          VERSION=${VERSION#v}
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      # -----------------------------
+      # Docker login
+      # -----------------------------
+      - name: Log in to Azure Container Registry
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      # -----------------------------
+      # Determine Docker tag suffix
+      # -----------------------------
+      - name: Set Docker tag suffix
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "main" ]]; then
+            echo "SUFFIX=latest" >> $GITHUB_ENV
+          else
+            echo "SUFFIX=dev" >> $GITHUB_ENV
+          fi
+
+      # -----------------------------
+      # Docker build and push
+      # -----------------------------
+      - name: Build and push Docker image
+        run: |
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/sensa-docs:${{ env.VERSION }}-${{ env.SUFFIX }} .
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/sensa-docs:${{ env.VERSION }}-${{ env.SUFFIX }}
