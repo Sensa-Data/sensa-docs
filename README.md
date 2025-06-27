@@ -101,7 +101,8 @@ If anything changes in the following files & folders at `dev` or  `main` branch 
 - docs-public/**
 - Dockerfile
 - nginx.conf
-- mkdocs.public.yml <br>
+- mkdocs.public.yml 
+- .github/workflows/docker-mkdocs.yml <br>
 
 ## 🔗 Useful Links
 

@@ -10,6 +10,7 @@ on:
       - Dockerfile
       - nginx.conf
       - mkdocs.public.yml
+      - .github/workflows/docker-mkdocs.yml
 
 jobs:
   build-and-push:
