@@ -42,9 +42,7 @@ jobs:
         id: bump_version
         uses: mathieudutour/github-tag-action@v6.1
         with:
-          tag_prefix: "v"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       # -----------------------------
       # Extract version number from tag (e.g. v1.2.4 → 1.2.4)
