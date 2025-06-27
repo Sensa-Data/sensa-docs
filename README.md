@@ -36,14 +36,21 @@ The static site will be generated in the `site-public/` or `site-private/` direc
 ## 🗂️ Project Structure
 
 ```
-.
-├── docs-private/      # Private Markdown docs
-├── docs-public/       # Public Markdown docs (Python package)
-├── site-private/      # Generated private static site
-├── site-public/      # Generated public static site
-├── mkdocs.private.yml # MkDocs config for private docs
-├── mkdocs.public.yml  # MkDocs config for public docs
-├── requirements.txt   # Python dependencies
+├── .github/         
+│   └── workflows/          
+│       └── docker-mkdocs.yml   # CI workflow for building and pushing public doc's Docker image
+├── docs-private/         # Private Markdown docs
+│   ├── images/           # Images for private docs
+│   ├── stylesheets/      # Custom CSS for private docs
+│   └── {files}.md        # docs to be shown
+├── docs-public/          # Public Markdown docs
+├── site-private/         # Generated private static site
+├── site-public/          # Generated public static site
+├── mkdocs.private.yml    # MkDocs config for private docs
+├── mkdocs.public.yml     # MkDocs config for public docs
+├── requirements.txt      # Python dependencies
+├── nginx.conf            # Nginx configuration for Docker image
+├── Dockerfile            # Docker build file
 └── README.md
 ```
 
@@ -69,13 +76,35 @@ The static site will be generated in the `site-public/` or `site-private/` direc
 - Add Python dependencies to `requirements.txt`.
 - Run `pip install -r requirements.txt` after changes.
 
-### 5. Building for Production
+### 5. Build static site
 
 - Use the appropriate config file to build:
   - Private: `mkdocs build -f mkdocs.private.yml`
   - Public: `mkdocs build -f mkdocs.public.yml`
 
+## Docker Image
+
+This project provides a Docker image to serve the static site with Nginx. 
+### Build the Docker Image
+
+```sh
+docker build -t sensa-docs:latest .
+```
+### Run the Docker Image
+
+```sh
+docker run -p 8080:80 sensa-docs:latest
+```
+
+## Github action
+If anything changes in the following files & folders at `dev` or  `main` branch then github action: `.github/workflows/docker-mkdocs.yml` will automatically build and push the docker image to the acr with the tag based on the branch. <br>
+- docs-public/**
+- Dockerfile
+- nginx.conf
+- mkdocs.public.yml <br>
+
 ## 🔗 Useful Links
 
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 - [MkDocs Documentation](https://www.mkdocs.org/)
+
