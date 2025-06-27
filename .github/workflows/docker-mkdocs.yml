@@ -39,7 +39,7 @@ jobs:
       # -----------------------------
       - name: Bump version and push tag
         id: versioning
-        uses: phips28/gh-action-bump-version@v10
+        uses: phips28/gh-action-bump-version@v11.0.7
         with:
           tag-prefix: "v"
           commit-message: "ci: bump version to {{version}}"
