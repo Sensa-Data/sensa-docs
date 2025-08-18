@@ -33,20 +33,21 @@ theme:
 
 # Navigation defined per locale in .yml
 nav:
+  - Explore: index.md
   - Unity Engine:
-    - Getting Started: engine/getting-started/index.md
+    - Getting Started: engine/getting-started/overview.md
     - Pipelines:
-        - Create Pipelines: engine/pipelines/02-writing-pipelines.md
-        - Scheduling Pipelines: engine/pipelines/03-scheduling-pipe-runs.md
-        - Reading and Writing Data: engine/pipelines/05-reading-and-writing-data.md
+        - Create Pipelines: engine/pipelines/writing-pipelines.md
+        - Scheduling Pipelines: engine/pipelines/scheduling-pipe-runs.md
+        - Reading and Writing Data: engine/pipelines/reading-and-writing-data.md
     - Model/Schema:
-        - Schema Validation: engine/model-schema/04-validation-schema.md
+        - Schema Validation: engine/model-schema/validation-schema.md
 
   - Unity SDK:
     - Getting Started:
-        - Overview: sdk/getting-started/01-overview.md
-        - Installation: sdk/getting-started/02-install.md
-        - Quickstart: sdk/getting-started/03-quickstart.md
+        - Overview: sdk/getting-started/overview.md
+        - Installation: sdk/getting-started/install.md
+        - Quickstart: sdk/getting-started/quickstart.md
     - Guides:
         - Best Practices: sdk/guides/best-practices.md
         - Data Processing: sdk/guides/data-processing.md
