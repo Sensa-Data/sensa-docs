@@ -33,7 +33,7 @@ theme:
 
 # Navigation defined per locale in .yml
 nav:
-  - Explore: index.md
+  - Introduction: index.md
   - Unity Engine:
     - Getting Started: engine/getting-started/overview.md
     - Pipelines:
