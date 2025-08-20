@@ -6,7 +6,7 @@
 To read data from **Unity DB**, you can use the `TSClient` class. Here's a simple example of how to read data:
 
 ```python
-from unity_sdk.clients import TSClient
+from unity_sdk.db.clients import TSClient
 from unity_sdk.engine.config import get_secret
 # get token from secrets manager
 token = get_secret('RAW_DB_TOKEN')
@@ -82,7 +82,7 @@ Now you can use the DataFrame `df` as needed
 To write data to **Unity DB**, you can use the `TSClient` class as well. Here's an example of how to write a DataFrame to **Unity DB**:
 
 ```python
-from unity_sdk.clients import TSClient
+from unity_sdk.db.clients import TSClient
 from unity_sdk.engine.config import get_secret
 from unity_sdk.utils.model_utils import apply_data_types
 # get token from secrets manager

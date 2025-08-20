@@ -5,19 +5,19 @@
 From dashboard home or pipelines page select New Pipeline. Let’s start
 with Standard batch.
 
-![](images/new_pipeline.png)
+![](../../images/engine/new_pipeline.png)
 
 Add pipeline name, description and tags. Only name is mandatory. Select
 create. It’ll bring you to created pipeline edit screen
 
-![](images/pipeline_name_description.png)
+![](../../images/engine/pipeline_name_description.png)
 
 ## Editing created pipeline
 
 Once you are landed to pipeline edit screen it’ll offer you to write
 pipeline block.
 
-![](images/pipeline_edit_window.png)
+![](../../images/engine/pipeline_edit_window.png)
 
 On panel the file browser let’s you list down the files and folders.
 Right panel offers pipeline utilities like variables, secrets and
@@ -31,7 +31,7 @@ the necessary blocks.
 Click data loader and select custom template.  
 Select ==unity\_data\_loader==.
 
-![](images/unity_data_loader.png)
+![](../../images/engine/unity_data_loader.png)
 
 Give a meaningful name. To organize the blocks in a modular way, append
 ==**pipeline\_name/**== before block name. It’ll keep the block files into
@@ -51,7 +51,7 @@ Unity DB or any api.
     from unity_sdk.engine.config import get_secret
 
     import pandas as pd
-    from unity_sdk.clients import TSClient
+    from unity_sdk.db.clients import TSClient
 
     token = get_secret('RAW_DB_TOKEN')
     db = "Raw"
@@ -87,7 +87,7 @@ Unity DB or any api.
 Use the right top toolbar to execute the block, visualize block output,
 manage variables and adjust block settings
 
-![](images/block_toolbar.png)
+![](../../images/engine/block_toolbar.png)
 
 Whatever returned from the loader block will be passed to the next block
 based on block parent settings
@@ -101,7 +101,7 @@ based on block parent settings
 
 Let’s create a transformer block.
 
-Click ![](images/transfor_button.png), select
+Click ![](../../images/engine/transfor_button.png), select
 custom template and select unity\_data\_transformer from the list.
 
 It’ll populate initial transformer code with essential imports and
@@ -154,7 +154,7 @@ Returned data gets passed to next block.
 
 Let’s create a transformer block.
 
-Click ![](images/exporter_button.png),
+Click ![](../../images/engine/exporter_button.png),
 select custom template and select unity\_data\_exporter from the list.
 
 It’ll populate initial exporter code with essential imports and
@@ -166,7 +166,7 @@ decorators
 
     from unity_sdk.engine.config import get_secret
     from {{customer}}_dataops.models.water_quality_lab_measurements import WaterQualityLabMeasurementsModel
-    from unity_sdk.clients import TSClient
+    from unity_sdk.db.clients import TSClient
     from unity_sdk.utils import model_utils
     import pandas as pd
 
