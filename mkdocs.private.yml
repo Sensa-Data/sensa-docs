@@ -10,7 +10,6 @@ theme:
   name: material
   features:
     - navigation.instant
-    - navigation.sections
     - navigation.footer
     - search.suggest
     - search.highlight
@@ -34,12 +33,25 @@ theme:
 
 # Navigation defined per locale in .yml
 nav:
+  - Introduction: index.md
   - Unity Engine:
-    - Getting Started: index.md
-    - Pipelines: 02-writing-pipelines.md
-    - Scheduling Pipelines: 03-scheduling-pipe-runs.md
-    - Schema Validation: 04-validation-schema.md
-    - Reading and Writing Data: 05-reading-and-writing-data.md
+    - Getting Started: engine/getting-started/overview.md
+    - Pipelines:
+        - Create Pipelines: engine/pipelines/writing-pipelines.md
+        - Scheduling Pipelines: engine/pipelines/scheduling-pipe-runs.md
+        - Reading and Writing Data: engine/pipelines/reading-and-writing-data.md
+    - Model/Schema:
+        - Schema Validation: engine/model-schema/validation-schema.md
+
+  - Unity SDK:
+    - Getting Started:
+        - Overview: sdk/getting-started/overview.md
+        - Installation: sdk/getting-started/install.md
+        - Quickstart: sdk/getting-started/quickstart.md
+    - Guides:
+        - Best Practices: sdk/guides/best-practices.md
+        - Data Processing: sdk/guides/data-processing.md
+    - Reference: sdk/reference.md
 
 plugins:
   - search
